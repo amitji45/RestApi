@@ -13,5 +13,8 @@ public class MyController {
 	{
 		return "MyController";
 	}
+
+	@GetMapping("/check")
+	public String check(){ return "Working"; }
 	
 }
