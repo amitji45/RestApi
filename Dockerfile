@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-alpine
+
 FROM maven:4.0.0-openjdk-17-slim AS build
 # Set the working directory in the container
 WORKDIR /app
@@ -8,7 +8,7 @@ COPY src ./src
 # Build the application using Maven
 RUN mvn clean package -DskipTests
 # Use an official OpenJDK image as the base image
-FROM openjdk:17-jre-slim
+FROM openjdk:17-jdk-alpine
 # Copy the built JAR file from the previous stage to the container
 COPY target/*.jar app.jar
 # Set the command to run the application
